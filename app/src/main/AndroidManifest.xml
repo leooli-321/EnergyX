@@ -1,26 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/zeus"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/zeus"
         android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/Theme.EnergyX"
-        tools:targetApi="31">
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+        >
+
+        <!-- Splash Activity, que é a primeira a ser chamada -->
+        <activity android:name=".SplashActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:exported="true"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Atividade de Login -->
+        <activity android:name=".LoginActivity"
+            android:exported="true" />
+
+        <!-- Adicionando a MainActivity -->
+        <activity android:name=".MainActivity"
+            android:exported="true" />
+
+        <!-- Outras atividades -->
+        <activity android:name=".InicialSegurancaActivity"
+            android:exported="true" />
+        <activity android:name=".InicialActivity"
+            android:exported="true" />
+        <activity android:name=".Cadastro1Activity"
+            android:exported="true" />
+        <activity android:name=".Cadastro2Activity"
+            android:exported="true" />
+        <activity android:name=".FluxoRefrigeracaoActivity"
+            android:exported="true" />
+        <activity android:name=".InicialLoginActivity"
+            android:exported="true" />
+        <activity android:name=".NiveisRadiacaoActivity"
+            android:exported="true" />
+        <activity android:name=".PressaoReatorActivity"
+            android:exported="true" />
+        <activity android:name=".TemperaturaNucleoActivity"
+            android:exported="true" />
+
     </application>
 
 </manifest>

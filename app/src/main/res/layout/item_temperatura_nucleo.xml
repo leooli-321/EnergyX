@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Ícone do termômetro -->
+    <ImageView
+        android:id="@+id/thermometer_icon"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        app:srcCompat="@drawable/thermometer"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Rótulo da temperatura -->
+    <TextView
+        android:id="@+id/temp_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temperatura"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/thermometer_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Valor da temperatura -->
+    <TextView
+        android:id="@+id/temp_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="299 Cº"
+        android:textColor="#00C566"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="@id/temp_label"
+        app:layout_constraintTop_toBottomOf="@id/temp_label"
+        android:layout_marginTop="8dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

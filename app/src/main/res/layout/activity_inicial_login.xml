@@ -6,54 +6,55 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#16171D"
-    tools:context=".MainActivity">
+    tools:context=".InicialLoginActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="36dp"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Pular"
-        android:textColor="#F5C249"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_margin="30dp"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="488dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="Notificações \nRápidas e Fáceis"
-        android:textColor="#FFF"
-        android:textSize="35sp"
-        app:layout_constraintStart_margin="63dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="468dp"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    <!-- Imagem do login -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="368dp"
         android:layout_height="463dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="48dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_margin="16dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/notiifcacoes_login" />
+        app:srcCompat="@drawable/notiifcacoes_login"
+        tools:layout_editor_absoluteY="58dp" />
 
+    <!-- Título -->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Notificações \nRápidas e Fáceis"
+        android:textColor="#FFF"
+        android:textSize="35sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+    <!-- Botão "Cadastro" -->
+    <Button
+        android:id="@+id/cadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="208dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Cadastro"
+        android:textColor="#16171D"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Botão "Log In" -->
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/button_background"
         android:fontFamily="@font/poppins_regular"
         android:text="Log In"
@@ -61,6 +62,5 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

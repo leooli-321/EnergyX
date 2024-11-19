@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#16171D"
+    tools:context=".PressaoReatorActivity">
+
+    <!-- Botão voltar -->
+    <ImageView
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_page_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.594"
+        app:srcCompat="@drawable/seta_esquerda" />
+
+    <!-- Título da página -->
+    <TextView
+        android:id="@+id/tv_page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Pressão do reator"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/btn_back"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Ícone da página -->
+    <ImageView
+        android:id="@+id/img_page_icon"
+        android:layout_width="77dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_page_title"
+        app:layout_constraintStart_toStartOf="@id/btn_back"
+        app:srcCompat="@drawable/pressure_gauge" />
+
+    <!-- Título do ícone -->
+    <TextView
+        android:id="@+id/tv_icon_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Resumo de pressão"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/img_page_icon"
+        app:layout_constraintTop_toTopOf="@id/img_page_icon" />
+
+    <!-- Layout para as colunas -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/column_layout"
+        android:layout_width="0dp"
+        android:layout_height="500sp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_icon_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Coluna de Horário -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/horarioRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/pressureRecyclerView" />
+
+        <!-- Coluna de Pressão -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pressureRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/horarioRecyclerView"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

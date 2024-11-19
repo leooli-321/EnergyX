@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#16171D"
+    tools:context=".Cadastro1Activity">
+
+    <!-- Botão de voltar -->
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/seta_esquerda" />
+
+    <!-- Título "Cadastro" -->
+    <TextView
+        android:id="@+id/title_cadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="156dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Cadastro"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Campo "Nome" -->
+    <TextView
+        android:id="@+id/label_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Nome"
+        android:textColor="#A7AEBF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_cadastro" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_nome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="#21242D"
+        android:hint="Nos conte seu nome!"
+        android:textColor="#494D58"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_nome" />
+
+    <!-- Campo "Cargo" -->
+    <TextView
+        android:id="@+id/label_cargo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Cargo"
+        android:textColor="#A7AEBF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_nome" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/input_cargo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
+        android:backgroundTint="#21242D"
+        android:hint="Qual o seu cargo?"
+        android:textColor="#494D58"
+        android:padding="12dp"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_cargo" />
+
+    <!-- Campo "Turno" -->
+    <TextView
+        android:id="@+id/label_turno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Turno"
+        android:textColor="#A7AEBF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_cargo" />
+
+    <!-- Radio Buttons para Turno -->
+    <android.widget.RadioGroup
+        android:id="@+id/radio_group_turno"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_turno"
+        android:orientation="horizontal">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/turno_manha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manhã"
+            android:textColor="#A7AEBF"
+            android:paddingEnd="16dp"/>
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/turno_tarde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tarde"
+            android:textColor="#A7AEBF"
+            android:paddingEnd="16dp"/>
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/turno_noite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Noite"
+            android:textColor="#A7AEBF"/>
+    </android.widget.RadioGroup>
+
+    <!-- Link "Já tem sua conta? Faça Login!" -->
+    <TextView
+        android:id="@+id/label_login_prompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="264dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Já tem sua conta?"
+        android:textColor="#494D58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radio_group_turno" />
+
+    <TextView
+        android:id="@+id/link_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Faça Log in!"
+        android:textColor="#F5C249"
+        app:layout_constraintStart_toEndOf="@id/label_login_prompt"
+        app:layout_constraintTop_toTopOf="@id/label_login_prompt" />
+
+    <!-- Botão "Próximo" -->
+    <ImageView
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/next_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
