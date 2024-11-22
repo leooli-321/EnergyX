@@ -13,7 +13,7 @@ class InicialSegurancaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_inicial_seguranca)
 
         // Referências para os elementos no layout
-        val proximoImageView = findViewById<ImageView>(R.id.imageView2)
+        val proximoImageView = findViewById<ImageView>(R.id.btn_next)
 
         // Clique no "Próximo"
         proximoImageView.setOnClickListener {

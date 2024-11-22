@@ -34,151 +34,215 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Campo "Nome" -->
-    <TextView
-        android:id="@+id/label_nome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="68dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Nome"
-        android:textColor="#A7AEBF"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_cadastro" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/input_nome"
+    <!-- Barra de rolagem -->
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="15dp"
-        android:backgroundTint="#21242D"
-        android:hint="Nos conte seu nome!"
-        android:textColor="#494D58"
-        android:textSize="16sp"
-        android:padding="12dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/label_nome" />
-
-    <!-- Campo "Cargo" -->
-    <TextView
-        android:id="@+id/label_cargo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Cargo"
-        android:textColor="#A7AEBF"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_nome" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/input_cargo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="15dp"
-        android:backgroundTint="#21242D"
-        android:hint="Qual o seu cargo?"
-        android:textColor="#494D58"
-        android:padding="12dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/label_cargo" />
-
-    <!-- Campo "Turno" -->
-    <TextView
-        android:id="@+id/label_turno"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Turno"
-        android:textColor="#A7AEBF"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_cargo" />
-
-    <!-- Radio Buttons para Turno -->
-    <android.widget.RadioGroup
-        android:id="@+id/radio_group_turno"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/label_turno"
-        android:orientation="horizontal">
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/turno_manha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Manhã"
-            android:textColor="#A7AEBF"
-            android:paddingEnd="16dp"/>
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/turno_tarde"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tarde"
-            android:textColor="#A7AEBF"
-            android:paddingEnd="16dp"/>
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/turno_noite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Noite"
-            android:textColor="#A7AEBF"/>
-    </android.widget.RadioGroup>
-
-    <!-- Link "Já tem sua conta? Faça Login!" -->
-    <TextView
-        android:id="@+id/label_login_prompt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="264dp"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Já tem sua conta?"
-        android:textColor="#494D58"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/radio_group_turno" />
-
-    <TextView
-        android:id="@+id/link_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Faça Log in!"
-        android:textColor="#F5C249"
-        app:layout_constraintStart_toEndOf="@id/label_login_prompt"
-        app:layout_constraintTop_toTopOf="@id/label_login_prompt" />
-
-    <!-- Botão "Próximo" -->
-    <ImageView
-        android:id="@+id/next_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="72dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:scrollbars="vertical"
+        app:layout_constraintTop_toBottomOf="@id/title_cadastro"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/next_button" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- LinearLayout para conter os campos dentro da ScrollView -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Campo "Nome" -->
+            <TextView
+                android:id="@+id/label_nome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome"
+                android:textColor="#A7AEBF"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:backgroundTint="#21242D"
+                android:hint="Nos conte seu nome!"
+                android:textColor="#494D58"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:minHeight="48dp" />
+
+            <!-- Campo "Cargo" -->
+            <TextView
+                android:id="@+id/label_cargo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Cargo"
+                android:textColor="#A7AEBF"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_cargo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:backgroundTint="#21242D"
+                android:hint="Qual o seu cargo?"
+                android:textColor="#494D58"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:minHeight="48dp" />
+
+            <!-- Campo "Turno" -->
+            <TextView
+                android:id="@+id/label_turno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Turno"
+                android:textColor="#A7AEBF"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium" />
+
+            <!-- Radio Buttons para Turno -->
+            <RadioGroup
+                android:id="@+id/radio_group_turno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/turno_manha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Manhã"
+                    android:textColor="#A7AEBF"
+                    android:paddingEnd="16dp" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/turno_tarde"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tarde"
+                    android:textColor="#A7AEBF"
+                    android:paddingEnd="16dp" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/turno_noite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Noite"
+                    android:textColor="#A7AEBF" />
+            </RadioGroup>
+
+            <!-- Campo "LOR" -->
+            <TextView
+                android:id="@+id/label_lor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="LOR"
+                android:textColor="#A7AEBF"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_lor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:backgroundTint="#21242D"
+                android:hint="XXXXX-CNEN"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:minHeight="48dp" />
+
+            <!-- Campo "Senha" -->
+            <TextView
+                android:id="@+id/label_senha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Senha"
+                android:textColor="#A7AEBF"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:backgroundTint="#21242D"
+                android:hint="Crie sua senha"
+                android:textColor="#494D58"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:minHeight="48dp" />
+
+            <!-- Campo "Repita sua senha" -->
+            <TextView
+                android:id="@+id/label_repetir_senha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Repita sua senha"
+                android:textColor="#A7AEBF"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_medium" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_repetir_senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:backgroundTint="#21242D"
+                android:hint="Digite sua senha novamente"
+                android:textColor="#494D58"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:minHeight="48dp" />
+
+            <!-- Observação sobre senha -->
+            <TextView
+                android:id="@+id/password_criteria"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Mínimo de 8 caracteres e uma letra maiúscula."
+                android:textColor="#494D58"
+                android:textSize="14sp" />
+
+            <!-- Checkbox "Aceito Termos" -->
+            <CheckBox
+                android:id="@+id/checkbox_terms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Aceito os Termos de Uso e Política de Privacidade"
+                android:textColor="#A7AEBF"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_regular" />
+
+            <!-- Botão de cadastro -->
+            <Button
+                android:id="@+id/button_concluir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="#F5C249"
+                android:text="Cadastrar"
+                android:textColor="#16171D" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

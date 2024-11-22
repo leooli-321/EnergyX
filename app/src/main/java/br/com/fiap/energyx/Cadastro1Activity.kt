@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.radiobutton.MaterialRadioButton
 import com.google.android.material.textfield.TextInputEditText
 import android.widget.ImageView
+import com.google.android.material.button.MaterialButton
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -16,11 +17,13 @@ import java.util.concurrent.TimeUnit
 class Cadastro1Activity : AppCompatActivity() {
 
     private lateinit var nomeInput: TextInputEditText
+    private lateinit var senhaInput: TextInputEditText
     private lateinit var cargoInput: TextInputEditText
+    private lateinit var lorInput: TextInputEditText
     private lateinit var turnoManha: MaterialRadioButton
     private lateinit var turnoTarde: MaterialRadioButton
     private lateinit var turnoNoite: MaterialRadioButton
-    private lateinit var nextButton: ImageView // Alterado para ImageView
+    private lateinit var nextButton: MaterialButton // Use MaterialButton ao invés de ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,20 +31,24 @@ class Cadastro1Activity : AppCompatActivity() {
 
         // Inicializa os campos de entrada
         nomeInput = findViewById(R.id.input_nome)
+        senhaInput = findViewById(R.id.input_senha)
         cargoInput = findViewById(R.id.input_cargo)
+        lorInput = findViewById(R.id.input_lor)
         turnoManha = findViewById(R.id.turno_manha)
         turnoTarde = findViewById(R.id.turno_tarde)
         turnoNoite = findViewById(R.id.turno_noite)
-        nextButton = findViewById(R.id.next_button)
+        nextButton = findViewById(R.id.button_concluir)
 
         // Ação do botão "Próximo"
         nextButton.setOnClickListener {
             // Validar campos e enviar os dados
-            val nome = nomeInput.text.toString().trim()
+            val nomeOperador = nomeInput.text.toString().trim()
+            val senhaOperador = senhaInput.text.toString().trim()
             val cargo = cargoInput.text.toString().trim()
+            val lor = lorInput.text.toString().trim() //12345-CNEN
 
-            // Validação do nome e cargo
-            if (nome.isEmpty() || cargo.isEmpty()) {
+            // Validação dos campos obrigatórios
+            if (nomeOperador.isEmpty() || senhaOperador.isEmpty() || cargo.isEmpty() || lor.isEmpty()) {
                 Toast.makeText(this, "Por favor, preencha todos os campos.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -60,19 +67,21 @@ class Cadastro1Activity : AppCompatActivity() {
             // Preparar os dados para enviar à API
             val jsonBody = """
                 {
-                    "nome": "$nome",
+                    "nomeOperador": "$nomeOperador",
+                    "senhaOperador": "$senhaOperador",
                     "cargo": "$cargo",
-                    "turno_id": $turnoId
+                    "turnoId": $turnoId,
+                    "lor": "$lor"
                 }
             """.trimIndent()
 
-            // Enviar os dados para a API (API de intermediário)
+            // Enviar os dados para a API
             sendDataToApi(jsonBody)
         }
     }
 
     private fun sendDataToApi(jsonBody: String) {
-        val url = "http://172.16.71.42:8080/api/operadores/cadastro"
+        val url = "http://10.0.2.2:8080/api/operadores/cadastro"
 
         val client = OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
@@ -94,13 +103,18 @@ class Cadastro1Activity : AppCompatActivity() {
                 runOnUiThread {
                     when {
                         response.isSuccessful -> {
-                            // Parse da resposta, se necessário
-                            Toast.makeText(this@Cadastro1Activity, "Cadastro realizado!", Toast.LENGTH_SHORT).show()
+                            // Exibe o primeiro toast "Cadastro bem sucedido"
+                            Toast.makeText(this@Cadastro1Activity, "Cadastro bem sucedido", Toast.LENGTH_SHORT).show()
 
-                            // Aqui você pode passar dados para a próxima Activity
-                            val intent = Intent(this@Cadastro1Activity, Cadastro2Activity::class.java)
-                            // Passar dados necessários
-                            startActivity(intent)
+                            // Exibe o segundo toast "Agora faça Login"
+                            Toast.makeText(this@Cadastro1Activity, "Agora faça Login", Toast.LENGTH_SHORT).show()
+
+                            // Atraso para que o segundo toast seja visível antes de redirecionar
+                            android.os.Handler().postDelayed({
+                                val intent = Intent(this@Cadastro1Activity, LoginActivity::class.java)
+                                startActivity(intent)
+                                finish()  // Finaliza a atividade atual
+                            }, 2000) // Delay de 2 segundos para garantir que o Toast apareça
                         }
                         response.code == 400 -> {
                             Toast.makeText(this@Cadastro1Activity, "Erro de validação", Toast.LENGTH_SHORT).show()

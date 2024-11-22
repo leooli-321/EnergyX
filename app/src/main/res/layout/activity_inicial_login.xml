@@ -34,33 +34,36 @@
         app:layout_constraintTop_toBottomOf="@id/imageView" />
 
     <!-- Botão "Cadastro" -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/cadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="208dp"
         android:layout_marginBottom="32dp"
-        android:background="@drawable/button_background"
         android:fontFamily="@font/poppins_regular"
         android:text="Cadastro"
         android:textColor="#16171D"
         android:textSize="20sp"
+        app:backgroundTint="#F5C249"
+        app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Botão "Log In" -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
         android:layout_marginBottom="32dp"
-        android:background="@drawable/button_background"
         android:fontFamily="@font/poppins_regular"
         android:text="Log In"
         android:textColor="#16171D"
         android:textSize="20sp"
+        app:backgroundTint="#F5C249"
+        app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

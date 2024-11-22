@@ -13,8 +13,8 @@ class InicialActivity : AppCompatActivity() {
         setContentView(R.layout.activity_inicial)
 
         // Referências para os elementos no layout
-        val pularTextView = findViewById<TextView>(R.id.textView)
-        val proximoImageView = findViewById<ImageView>(R.id.imageView2)
+        val pularTextView = findViewById<TextView>(R.id.btn_skip)
+        val proximoImageView = findViewById<ImageView>(R.id.btn_next)
 
         // Clique no "Pular"
         pularTextView.setOnClickListener {

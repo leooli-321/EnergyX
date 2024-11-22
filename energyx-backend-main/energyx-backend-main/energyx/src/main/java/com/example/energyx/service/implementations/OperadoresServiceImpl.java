@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,10 +28,15 @@ public class OperadoresServiceImpl implements OperadoresService {
 
     @Override
     public OperadoresDTO cadastrarOperador(OperadoresDTO operadoresDTO) {
-        operadoresDTO.setSenhaOperador(operadoresDTO.getSenhaOperador());
         Operadores operador = mapearDTOParaEntidade(operadoresDTO);
         operador = operadoresRepository.save(operador);
         return mapearEntidadeParaDTO(operador);
+    }
+
+    public boolean validarCredenciais(String lor, String senhaOperador) {
+        // Busca o operador no banco de dados
+        Optional<Operadores> operador = operadoresRepository.findByLorAndSenhaOperador(lor, senhaOperador);
+        return operador.isPresent();
     }
 
     @Override
