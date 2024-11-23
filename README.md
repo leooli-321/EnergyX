@@ -35,8 +35,11 @@ A aplicação tem como foco:
 - **Backend:** Java Spring Boot, Oracle Database
 - **Infraestrutura:** Docker
 
+  ## Vídeo Demonstração
+  - https://youtu.be/ZLosk2b6LJI
+
 ## Como Rodar a Aplicação
-Para rodar o aplicativo móvel, basta configurar o ambiente Android Studio com as dependências necessárias e importar o projeto. Certifique-se de que o backend esteja configurado corretamente para garantir a comunicação entre os sistemas.
+Para rodar o aplicativo móvel, basta configurar o ambiente Android Studio com as dependências necessárias e importar o projeto, após isso, rode o arquivo (https://github.com/leooli-321/EnergyX/blob/master/energyx-backend-main/energyx-backend-main/energyx/src/main/java/com/example/energyx/EnergyxApplication.java) para executar a coneção com o Backend. Após isso você poderá enfim rodar a aplicação via emulador e executar a aplicação.
 
 ---
 
